@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Pressable, Button, TextInput, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Button, TextInput, Text, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Separator = () => (
@@ -21,6 +21,18 @@ export default class App extends React.Component {
         {/* <Pressable style={styles.button} >
           <Text style={styles.text}>Save</Text>
         </Pressable> */}
+        <View style={{flexDirection: 'row', marginTop: 20}}>
+          <TouchableOpacity style={styles.area}>
+            <Text style={styles.paragraph}>
+                Encrypt 
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.areaD}>
+            <Text style={styles.paragraph}>
+              Decrypt 
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -77,11 +89,35 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    fontSize: 16,
+    fontSize: 50,
     lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
+  },
+  area:{
+     backgroundColor: '#cccccc',
+     borderRadius:20,
+     borderWidth:2,
+     padding:2,
+     margin:2,
+     marginLeft: 20,
+     width: 170,
+  },
+  areaD:{
+     backgroundColor: '#cccccc',
+     borderRadius:20,
+     borderWidth:2,
+     padding:2,
+     margin:2,
+     marginLeft: 22,
+     width: 170,
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   encryptButton: {
   }  
