@@ -51,9 +51,9 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif-medium'
   },
   input: {
-    borderWidth: 1,
-    borderColor: 'white',
-    marginTop: 20,
+    borderWidth: 4,
+    borderColor: 'black',
+    marginTop: 12,
     marginHorizontal: 20,
     paddingHorizontal: 10,
     paddingVertical: 18,
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   keyInputStyling: {
-    width: 15,
-    minWidth: 80,
+    width: 20,
+    minWidth: 90,
   },
   messageInputStyling: {
     width: 35,
-    minWidth: 262,
-    marginLeft: 7,
+    minWidth: 220,
+    marginLeft: 6,
   },
   separator: {
     marginVertical: 8,
@@ -98,20 +98,20 @@ const styles = StyleSheet.create({
   area:{
      backgroundColor: '#cccccc',
      borderRadius:20,
-     borderWidth:2,
+     borderWidth: 4,
      padding:2,
      margin:2,
-     marginLeft: 20,
-     width: 170,
+     marginLeft: 6,
+     width: 168,
   },
   areaD:{
      backgroundColor: '#cccccc',
      borderRadius:20,
-     borderWidth:2,
+     borderWidth: 4,
      padding:2,
      margin:2,
-     marginLeft: 22,
-     width: 170,
+     marginLeft: 10,
+     width: 168,
   },
   paragraph: {
     margin: 24,
