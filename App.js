@@ -8,8 +8,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.textHeading}>Secret Messages</Text>
-        <TextInput placeholderTextColor = "white" style={styles.input} placeholder="Message" />
-        <TextInput placeholderTextColor = "white" style={styles.input} placeholder="Key" />
+        <View style={{flexDirection: 'row'}}>
+          <TextInput placeholderTextColor = "white" style={styles.input} placeholder="Message" />
+          <TextInput placeholderTextColor = "white" style={[styles.input, styles.keyInputStyling]} placeholder="Key" />
+        </View>
       </View>
     );
   }
@@ -37,4 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 25,
   },
+  keyInputStyling: {
+    width: 15,
+  }
 });
