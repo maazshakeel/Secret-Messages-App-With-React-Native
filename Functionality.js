@@ -88,8 +88,13 @@ const styles = StyleSheet.create({
   }  
 });
 
-
 export default class Functionality extends React.Component {
+  state = {
+      message: '',
+      encryptMessage: '',
+      key: '',
+      showEncryptMessage: false,
+  }
   render() {
     return (
       <View style={styles.container}>
