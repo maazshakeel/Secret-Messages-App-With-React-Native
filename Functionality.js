@@ -90,18 +90,35 @@ const styles = StyleSheet.create({
 
 export default class Functionality extends React.Component {
   state = {
-      message: '',
-      encryptMessage: '',
-      key: '',
-      showEncryptMessage: false,
+    message: '',
+    key: '',
+  }
+  handleKeyInput = key => {
+    this.setState({key})
+  }
+  handleMessageInput = message => {
+    this.setState({message})
   }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.textHeading}>Secret Messages</Text>
         <View style={{flexDirection: 'row', marginTop: 50, marginBottom: 15}}>
-          <TextInput placeholderTextColor = "white" style={[styles.input, styles.messageInputStyling]} placeholder="Message" />
-          <TextInput keyboardType="numeric" placeholderTextColor = "white" style={[styles.input, styles.keyInputStyling]} placeholder="Key" />
+          <TextInput 
+            placeholderTextColor = "white" 
+            style={[styles.input, styles.messageInputStyling]} 
+            placeholder="Message" 
+            value={this.state.message}
+            onChangeText={this.handleMessageInput}
+          />
+          <TextInput 
+            keyboardType="numeric" 
+            placeholderTextColor = "white" 
+            style={[styles.input, styles.keyInputStyling]} 
+            placeholder="Key" 
+            value={this.state.key}
+            onChangeText={this.handleKeyInput}
+          />
         </View>
         <View style={{flexDirection: 'row', marginTop: 20}}>
           <TouchableOpacity style={styles.area}>
