@@ -149,13 +149,10 @@ export default class Functionality extends React.Component {
     }))
   };
   decryptMessage = () => {
-    var key = this.state.key * -1;
+    var key = this.state.key + 26;
   // Wrap the amount
-    if (this.state.key < 0) {
-      return caesarShift(this.state.key, this.state.message + 26);
-    }
 
-    message = this.state.message + 26;
+    message = this.state.message;
 
     // Make an output variable
     var output = "";
