@@ -215,9 +215,8 @@ export default class Functionality extends React.Component {
             onChangeText={this.handleKeyInput}
           />
         </View>
-        <View style={{flexDirection: 'row', 
-    marginTop: 20}}>
-          <TouchableOpacity style={styles.area}>
+        <View style={{flexDirection: 'row', marginTop: 20}}>
+          <TouchableOpacity style={styles.area} onPress={this.encryptMessage} disabled={!this.state.disabledButtons}>
             <Text style={styles.paragraph}>
                 Encrypt 
             </Text>
