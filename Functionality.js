@@ -92,9 +92,12 @@ export default class Functionality extends React.Component {
   state = {
     message: '',
     key: '',
+    disabledButtons: false, 
   }
   handleKeyInput = key => {
-    this.setState({key})
+    if (+key >= 0) {
+      this.setState({key, disabledButtons: true})
+    }
   }
   handleMessageInput = message => {
     this.setState({message})
@@ -105,7 +108,7 @@ export default class Functionality extends React.Component {
         <Text style={styles.textHeading}>Secret Messages</Text>
         <View style={{flexDirection: 'row', marginTop: 50, marginBottom: 15}}>
           <TextInput 
-            placeholderTextColor = "white" 
+            placeholderTextColor="white" 
             style={[styles.input, styles.messageInputStyling]} 
             placeholder="Message" 
             value={this.state.message}
@@ -121,12 +124,12 @@ export default class Functionality extends React.Component {
           />
         </View>
         <View style={{flexDirection: 'row', marginTop: 20}}>
-          <TouchableOpacity style={styles.area}>
+          <TouchableOpacity style={styles.area} onPress={this.onSubmit} disabled={!this.state.disabledButtons}>
             <Text style={styles.paragraph}>
                 Encrypt 
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.areaD}>
+          <TouchableOpacity style={styles.areaD} disabled={!this.state.disabledButtons}>
             <Text style={styles.paragraph}>
               Decrypt 
             </Text>
