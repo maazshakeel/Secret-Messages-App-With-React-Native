@@ -149,10 +149,10 @@ export default class Functionality extends React.Component {
     }))
   };
   decryptMessage = () => {
-    var key = this.state.key + 26;
+    var key = this.state.key;
   // Wrap the amount
 
-    message = this.state.message;
+    var message = this.state.message;
 
     // Make an output variable
     var output = "";
@@ -169,12 +169,12 @@ export default class Functionality extends React.Component {
 
         // Uppercase letters
         if (code >= 65 && code <= 90) {
-          c = String.fromCharCode(((code - 65 + key) % 26) + 65);
+          c = String.fromCharCode(((code - 65 - key) % 26) + 65);
         }
 
         // Lowercase letters
         else if (code >= 97 && code <= 122) {
-          c = String.fromCharCode(((code - 97 + key) % 26) + 97);
+          c = String.fromCharCode(((code - 97 - key) % 26) + 97);
         }
       }
 
@@ -222,7 +222,7 @@ export default class Functionality extends React.Component {
             </Text>
           </TouchableOpacity>
         </View>
-        {this.state.showEncryptMessage && <Message encryptMessage={this.state.encryptMessage} />}
+        {this.state.showEncryptMessage && <Message encryptMessage={this.state.encryptMessage} showEncryptMessage={this.state.showEncryptMessage} />}
       </View>
     );
   }

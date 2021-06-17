@@ -29,17 +29,33 @@ class Message extends React.Component {
   }
 
   render() {
-    return (
-      <View style={{alignItems: 'center', marginTop: 15}}>
-        <Text style={{color: 'white', fontSize: 35}}>Your Encrypted Message</Text>
-        <Text style={{color: 'white', fontSize: 17, marginTop: 10}}>{this.props.encryptMessage}</Text>
-        <TouchableOpacity style={styles.area} onPress={this.copyToClipboard}>
-            <Text style={styles.paragraph}>
-                Copy to clipboard 
-            </Text>
-          </TouchableOpacity>
-      </View>
-    );
+    if (this.props.showEncryptMessage)
+    {
+      return (
+        <View style={{alignItems: 'center', marginTop: 15}}>
+          <Text style={{color: 'white', fontSize: 35}}>Your Encrypted Message</Text>
+          <Text style={{color: 'white', fontSize: 17, marginTop: 10}}>{this.props.encryptMessage}</Text>
+          <TouchableOpacity style={styles.area} onPress={this.copyToClipboard}>
+              <Text style={styles.paragraph}>
+                  Copy to clipboard 
+              </Text>
+            </TouchableOpacity>
+        </View>
+      );
+    }
+    else {
+      return (
+        <View style={{alignItems: 'center', marginTop: 15}}>
+          <Text style={{color: 'white', fontSize: 35}}>Your Decrypted Message</Text>
+          <Text style={{color: 'white', fontSize: 17, marginTop: 10}}>{this.props.encryptMessage}</Text>
+          <TouchableOpacity style={styles.area} onPress={this.copyToClipboard}>
+              <Text style={styles.paragraph}>
+                  Copy to clipboard 
+              </Text>
+            </TouchableOpacity>
+        </View>
+      );
+    }
   }
 }
 
