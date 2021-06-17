@@ -111,10 +111,6 @@ export default class Functionality extends React.Component {
   }
   encryptMessage = () => {
   // Wrap the amount
-    if (this.state.key < 0) {
-      return caesarShift(this.state.key, this.state.message + 26);
-    }
-
     // Make an output variable
     var output = "";
 
@@ -159,18 +155,20 @@ export default class Functionality extends React.Component {
       return caesarShift(this.state.key, this.state.message + 26);
     }
 
+    message = this.state.message + 26;
+
     // Make an output variable
     var output = "";
 
     // Go through each character
-    for (var i = 0; i < this.state.message.length; i++) {
+    for (var i = 0; i < message.length; i++) {
       // Get the character we'll be appending
-      var c = this.state.message[i];
+      var c = message[i];
 
       // If it's a letter...
       if (c.match(/[a-z]/i)) {
         // Get its code
-        var code = this.state.message.charCodeAt(i);
+        var code = message.charCodeAt(i);
 
         // Uppercase letters
         if (code >= 65 && code <= 90) {
