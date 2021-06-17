@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 class Message extends React.Component {
   copyToClipboard = () => {
     Clipboard.setString(this.props.encryptMessage)
-    Alert.alert('Text Copied')
+    Alert.alert('Copied')
   }
 
   render() {
