@@ -148,6 +148,8 @@ export default class Functionality extends React.Component {
       encryptMessage: output,
       showEncryptMessage: true,
       disabledButtons: true,
+      key: '',
+      message: '',
     }))
   };
   decryptMessage = () => {
