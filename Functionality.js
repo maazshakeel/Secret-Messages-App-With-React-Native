@@ -6,10 +6,6 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Message from './Message'
 
 const styles = StyleSheet.create({
-  buttonsView: {
-    flexDirection: 'row', 
-    marginTop: 20
-  },
   container: {
     flex: 1,
     backgroundColor: '#232F34',
@@ -219,7 +215,8 @@ export default class Functionality extends React.Component {
             onChangeText={this.handleKeyInput}
           />
         </View>
-        <View style={styles.buttonsView}>
+        <View style={{flexDirection: 'row', 
+    marginTop: 20}}>
           <TouchableOpacity style={styles.area}>
             <Text style={styles.paragraph}>
                 Encrypt 
