@@ -110,28 +110,34 @@ export default class Functionality extends React.Component {
     console.log("calling!")
   }
   encryptMessage = () => {
-  // Wrap the amount
+    if (amount < 0) {
+      return caesarShift(str, amount + 26);
+    }
+
+    var str = this.state.message;
+    var amount = +this.state.key;
+
     // Make an output variable
     var output = "";
 
     // Go through each character
-    for (var i = 0; i < this.state.message.length; i++) {
+    for (var i = 0; i < str.length; i++) {
       // Get the character we'll be appending
-      var c = this.state.message[i];
+      var c = str[i];
 
       // If it's a letter...
       if (c.match(/[a-z]/i)) {
         // Get its code
-        var code = this.state.message.charCodeAt(i);
+        var code = str.charCodeAt(i);
 
         // Uppercase letters
         if (code >= 65 && code <= 90) {
-          c = String.fromCharCode(((code - 65 + this.state.key) % 26) + 65);
+          c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
         }
 
         // Lowercase letters
         else if (code >= 97 && code <= 122) {
-          c = String.fromCharCode(((code - 97 + this.state.key) % 26) + 97);
+          c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
         }
       }
 
@@ -149,32 +155,39 @@ export default class Functionality extends React.Component {
     }))
   };
   decryptMessage = () => {
-    var key = this.state.key;
-  // Wrap the amount
-
-    var message = this.state.message;
+      if (amount < 0) {
+      return caesarShift(str, amount + 26);
+    }
 
     // Make an output variable
     var output = "";
 
+    var str = this.state.message;
+    console.log(str)
+    var amount = +this.state.key;
+    amount = amount * -1;
+    amount = amount + 26;
+    console.log(amount)
+
+
     // Go through each character
-    for (var i = 0; i < message.length; i++) {
+    for (var i = 0; i < str.length; i++) {
       // Get the character we'll be appending
-      var c = message[i];
+      var c = str[i];
 
       // If it's a letter...
       if (c.match(/[a-z]/i)) {
         // Get its code
-        var code = message.charCodeAt(i);
+        var code = str.charCodeAt(i);
 
         // Uppercase letters
         if (code >= 65 && code <= 90) {
-          c = String.fromCharCode(((code - 65 - key) % 26) + 65);
+          c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
         }
 
         // Lowercase letters
         else if (code >= 97 && code <= 122) {
-          c = String.fromCharCode(((code - 97 - key) % 26) + 97);
+          c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
         }
       }
 
